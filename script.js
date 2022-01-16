@@ -163,9 +163,7 @@ const access_token = "ya29.A0ARrdaM8fsbNHztu6IYKWdVZV4otine_zHKmYX03llGH35UhAtbI
 
 // Read | Http Method : GET
 const getPosts = () => {
-  fetch(`${baseUrl}playlists?part=snippet
-  &channelId=UC_x5XG1OV2P6uZZ5FSM9Ttw
-  &key=${api_key}`)
+  fetch(`${baseUrl}channels?part=contentDetails&mine=true&key=${api_key}`)
     .then((data) => data.json())
     .then((res) => console.log(res));
 };
