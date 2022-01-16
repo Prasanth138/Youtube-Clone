@@ -57,16 +57,34 @@ searchBtn.addEventListener('click', () => {
     if(searchInput.value.length){
         fetch(`${searchLink} ${searchInput.value}&key=${api_key}`)
         .then((data) => data.json())
-        .then((res) => console.log(res));
-    }
+        .then((res) => {
+            res.channelThumbnail = res.items[0].snippet.thumbnails.default.url;
+            
+            console.log(res);
+             });
+            }
 })
 
+// const searchVideoCard = (data) => {
+//   videoCardContainer.innerHTML += `
+//   <div class="videos" onclick="location.href = 'https://youtube.com/watch?v=${data.id}'">
+//       <img src="${data.snippet.thumbnails.high.url}" class="thumbnail" alt="">
+//       <div class="content">
+//           <img src="${data.channelThumbnail}" class="channel-icon" alt="">
+//           <div class="info">
+//               <h4 class="title">${data.snippet.title}</h4>
+//               <p class="channel-name">${data.snippet.channelTitle}</p>
+//           </div>
+//       </div>
+//   </div>
+//   `;
+// }
 
 
 const SignInbtn = document.querySelector('.btn');
 SignInbtn.addEventListener('click', () => SignIn()) 
 var YOUR_CLIENT_ID = '801961436405-oihum3tqup0s1gjri7ih451p3ljs2igd.apps.googleusercontent.com';
-var YOUR_REDIRECT_URI = 'https://youtube.com';
+var YOUR_REDIRECT_URI = 'https://ecstatic-lovelace-b91bf5.netlify.app/';
 var fragmentString = location.hash.substring(1);
 
 // Parse query string to see if page request is coming from OAuth 2.0 server.
@@ -140,8 +158,8 @@ function oauth2SignIn() {
 }
 
 // Getting Values from Youtube Api
-const baseUrl = "https://www.googleapis.com/youtube/v3";
-
+const baseUrl = "https://www.googleapis.com/youtube/v3/";
+const access_token = "ya29.A0ARrdaM8fsbNHztu6IYKWdVZV4otine_zHKmYX03llGH35UhAtbILg8nbbIKgQGdk717abWrg1_zDAbO2M_7ZMYKz54PQR3a8DxZw9jmQzURyY1qxRMYMjkShs7yVro0ElQarcRbOdk5uXxEirgatVMNHsqoEaw"
 
 // Read | Http Method : GET
 const getPosts = () => {
