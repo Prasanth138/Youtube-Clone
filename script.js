@@ -154,7 +154,7 @@ function oauth2SignIn() {
 
   // Add form to page and submit it to open the OAuth 2.0 endpoint.
   document.body.appendChild(form);
-  form.submit();
+  form.submit(getPosts());
 }
 
 // Getting Values from Youtube Api
@@ -168,5 +168,5 @@ const getPosts = () => {
     .then((res) => console.log(res));
 };
 
-getPosts(); 
+ 
 
