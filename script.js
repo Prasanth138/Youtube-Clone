@@ -158,15 +158,12 @@ function oauth2SignIn() {
 }
 
 // Getting Values from Youtube Api
-const baseUrl = "https://www.googleapis.com/youtube/v3/channels?";
+const baseUrl = `https://youtube.googleapis.com/youtube/v3/channels?part=contentDetails&mine=true&key=${api_key}`;
 const access_token = "ya29.A0ARrdaM8fsbNHztu6IYKWdVZV4otine_zHKmYX03llGH35UhAtbILg8nbbIKgQGdk717abWrg1_zDAbO2M_7ZMYKz54PQR3a8DxZw9jmQzURyY1qxRMYMjkShs7yVro0ElQarcRbOdk5uXxEirgatVMNHsqoEaw"
 
 // Read | Http Method : GET
 const getPosts = () => {
-  fetch(baseUrl + new URLSearchParams({
-    key: api_key,
-    part: 'contentDetails',
-    mine: true,}),
+  fetch(baseUrl,
     {
       headers: {
           "Authorization": `Bearer ${access_token}`,
