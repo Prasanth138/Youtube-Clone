@@ -165,7 +165,7 @@ const access_token = "ya29.A0ARrdaM8fsbNHztu6IYKWdVZV4otine_zHKmYX03llGH35UhAtbI
 const getPosts = () => {
   fetch(baseUrl,
     {
-      headers: {
+      header: {
           "Authorization": `Bearer ${access_token}`,
           "Accept": "application/json;charset=utf-8"},
       }
