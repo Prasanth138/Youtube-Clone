@@ -159,16 +159,16 @@ function oauth2SignIn() {
 
 // Getting Values from Youtube Api
 const access_token = "ya29.A0ARrdaM8fsbNHztu6IYKWdVZV4otine_zHKmYX03llGH35UhAtbILg8nbbIKgQGdk717abWrg1_zDAbO2M_7ZMYKz54PQR3a8DxZw9jmQzURyY1qxRMYMjkShs7yVro0ElQarcRbOdk5uXxEirgatVMNHsqoEaw"
-const baseUrl = `https://youtube.googleapis.com/youtube/v3/channels?part=contentDetails&mine=true&key=${api_key}&pageToken=${access_token}`;
+const baseUrl = `https://youtube.googleapis.com/youtube/v3/channels?part=contentDetails&mine=true&key=${api_key}`;
 
 
 // Read | Http Method : GET
 const getPosts = () => {
   fetch(baseUrl,
     {
-      header: {
-          "Authorization": `Bearer=${access_token}`,
-          "Accept": "application/json;charset=utf-8"},
+      headers: {
+          Authorization: `Bearer ${access_token}`,
+          Accept: "application/json;charset=utf-8"},
       }
       )
     .then((data) => data.json())
